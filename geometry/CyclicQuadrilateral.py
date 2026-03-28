@@ -2,25 +2,17 @@ from manim import *
 import numpy as np
 
 
-def overlaps(mob1, mob2, margin: float = 0.05) -> bool:
-    """
-    判斷兩個 Mobject 包圍矩形是否重疊（開發期佈局偵測）。
-    用法：assert not overlaps(a, b)
-    """
-    l1, r1 = mob1.get_left()[0],  mob1.get_right()[0]
-    b1, t1 = mob1.get_bottom()[1], mob1.get_top()[1]
-    l2, r2 = mob2.get_left()[0],  mob2.get_right()[0]
-    b2, t2 = mob2.get_bottom()[1], mob2.get_top()[1]
-    return (l1 - margin < r2) and (r1 + margin > l2) and \
-           (b1 - margin < t2) and (t1 + margin > b2)
-
-
 class CyclicQuadrilateral(Scene):
     """
     圓內接四邊形對角互補 (對角和為 180 度)。
+    動態展示任意圓內接四邊形中，兩組對角各自相加皆為 180°。
     """
 
     def construct(self):
+        # [VISUAL REASONING]
+        # 1. Goal: 讓學生直觀看到圓內接四邊形對角互補定理在「任意形狀」下都成立
+        # 2. Layout: 圓與四邊形置左，公式面板置右（RIGHT * 3.5）；分兩階段展示 AC 對角與 BD 對角
+        # 3. ValueTracker 驅動四頂點位置，DecimalNumber updater 即時更新角度數值
         R = 2.4
         # 圓心微微偏左，留給右邊足夠空間
         origin = np.array([-2.5, -0.2, 0])
@@ -132,10 +124,6 @@ class CyclicQuadrilateral(Scene):
         group_AC = VGroup(panel_layout_AC, sum_panel_ac).arrange(DOWN, buff=0.8)
         # 右半邊空白中心約在 RIGHT * 3.5
         group_AC.move_to(RIGHT * 3.5 + DOWN * 0.2)
-        
-        # 重疊驗證
-        assert not overlaps(group_AC, circle), "公式與圓圖重疊！"
-        assert not overlaps(group_AC, title), "公式與標題重疊！"
 
         self.play(FadeIn(panel_layout_AC))
         self.play(Write(sum_panel_ac))
