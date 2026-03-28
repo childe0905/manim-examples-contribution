@@ -1,7 +1,15 @@
 from manim import *
 
 class ElementaryFractionLesson(Scene):
+    """
+    動態圓餅圖展示分數概念：從 0 → 1/4 → 1/2 → 3/4 → 1，
+    用扇形面積讓學生直觀理解「部分佔整體的比例」。
+    """
     def construct(self):
+        # [VISUAL REASONING]
+        # 1. Goal: 用視覺面積讓小學生直觀理解分數 1/4、1/2、3/4、1
+        # 2. Layout: 圓形底圖置中，扇形隨 ValueTracker 即時更新，標籤置於扇形下方
+        # 3. 分階段停頓在整數分數點，讓學生有時間觀察
         # 1. 場景初始化與標題
         # 使用深灰色背景,減少螢幕眩光,符合兒童護眼設計
         self.camera.background_color = "#2D3436"
@@ -44,13 +52,13 @@ class ElementaryFractionLesson(Scene):
             val = fraction_value.get_value()
             # 利用 numpy 的 isclose 處理浮點數精度問題
             if np.isclose(val, 0.25, atol=0.01):
-                return MathTex(r"\\frac{1}{4}", font_size=48)
+                return MathTex(r"\frac{1}{4}", font_size=48)
             elif np.isclose(val, 0.5, atol=0.01):
-                return MathTex(r"\\frac{1}{2}", font_size=48)
+                return MathTex(r"\frac{1}{2}", font_size=48)
             elif np.isclose(val, 0.75, atol=0.01):
-                return MathTex(r"\\frac{3}{4}", font_size=48)
+                return MathTex(r"\frac{3}{4}", font_size=48)
             elif np.isclose(val, 1.0, atol=0.01):
-                return MathTex(r"\\frac{4}{4} = 1", font_size=48)
+                return MathTex(r"\frac{4}{4} = 1", font_size=48)
             else:
                 # 非特定分數時顯示小數
                 return DecimalNumber(val, num_decimal_places=2, font_size=36)

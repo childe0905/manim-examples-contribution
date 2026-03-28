@@ -41,18 +41,13 @@ class FourierSeriesExample(Scene):
         comp2 = axes.plot(lambda t: 0.5 * np.sin(3 * t), color=GREEN).set_opacity(0.5)
         comp3 = axes.plot(lambda t: 0.3 * np.sin(5 * t), color=YELLOW).set_opacity(0.5)
 
-        self.play(
-            FadeOut(signal_graph),
-            ReplacementTransform(signal_graph.copy(), comp1),
-            ReplacementTransform(signal_graph.copy(), comp2),
-            ReplacementTransform(signal_graph.copy(), comp3),
-            run_time=2
-        )
+        self.play(FadeOut(signal_graph), FadeOut(signal_label), run_time=1)
+        self.play(FadeIn(comp1), FadeIn(comp2), FadeIn(comp3), run_time=1.5)
         self.wait(2)
 
         # 4. Frequency Domain Representation (Concept)
         # Shift time domain up
-        time_group = VGroup(axes, labels, comp1, comp2, comp3, signal_label)
+        time_group = VGroup(axes, labels, comp1, comp2, comp3)
         self.play(time_group.animate.shift(UP * 2 + LEFT * 2).scale(0.7))
 
         # Frequency axes
