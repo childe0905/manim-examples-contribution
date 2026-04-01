@@ -1,61 +1,98 @@
-# Manim Examples Contribution 🚀
+# Manim Examples Contribution
 
-這是一個用來收集高品質 Manim 圖形程式碼範例的專案。所有範例都會被送入 RAG 知識庫，讓 AI 生成更好的動畫腳本。
+這個專案用來收集高品質的 K12 Manim 教學動畫範例。所有範例都會進入 RAG 知識庫，幫助系統生成更穩定的數學動畫腳本。
 
 ---
 
-## 🛠️ 第一步：下載專案與環境設定
+## 第一步：下載專案與環境設定
 
-**1. 下載專案到你的電腦**
-打開終端機 (Terminal / PowerShell)，執行：
+**1. 下載專案**
 ```bash
 git clone https://github.com/childe0905/manim-examples-contribution.git
 cd manim-examples-contribution
 ```
 
-**2. 安裝必要的套件**
+**2. 安裝必要套件**
 ```bash
 pip install manim
 ```
-*(可選：建議使用虛擬環境 `python -m venv venv`)*
+
+可選：建議使用虛擬環境
+```bash
+python -m venv venv
+source venv/bin/activate
+```
 
 ---
 
-## ✏️ 第二步：開始製作動畫
+## 第二步：開始製作動畫
 
-1. 打開 `WORK_ASSIGNMENT.md` 看看你被分配到的題目。
-2. 打開 `CONTRIBUTOR_GUIDE.md`，把裡面的「程式碼模板」複製起來。
-3. 到對應的資料夾（例如 `geometry/` 或 `algebra/`），建立你的 `.py` 檔案。
-4. 開始寫程式碼！
+1. 先讀 `WORK_ASSIGNMENT.md`，確認你被分配到的題目。
+2. 再讀 `CONTRIBUTOR_GUIDE.md`，確認格式規則與品質要求。
+3. 到對應資料夾建立你的 `.py` 檔案。
+4. 完成後先自己用 `manim -pql` 測試。
 
-> 💡 **測試你的動畫：**
-> 在終端機執行以下指令預覽（`YourFile.py` 替換成你的檔名，`YourSceneName` 替換成你的類別名稱）：
+目前這一輪主要新增的資料夾：
+
+- `fractions/`：分數 area model、條帶比較、局部填色
+- `measurement/`：面積、周長、切割重組、格線面積
+- `statistics/`：長條圖、直方圖、圓餅圖、盒鬚圖
+
+> 測試指令：
 > ```bash
 > manim -pql YourFile.py YourSceneName
 > ```
 
 ---
 
-## 📤 第三步：如何上傳（繳交作業）
+## 第三步：這一輪的重點
 
-當你寫好一個或多個檔案，且在本機用 `manim -pql` 測試能成功渲染後，照著以下步驟上傳：
+這次不是單純補更多幾何題，而是要補強系統較弱的視覺模式：
 
-**1. 把所有改動加入暫存區**
+- 區域填色
+- 面積切割與重組
+- 規則排列的圖表區塊
+- 同一單位的等分與比例對應
+
+請優先讓圖形本身說話，不要把重心放在大量文字說明。
+
+---
+
+## 第四步：如何上傳
+
+當你完成一個或多個檔案，且本機 render 成功後，再進行提交：
+
+**1. 加入暫存區**
 ```bash
 git add .
 ```
 
-**2. 寫下你做了什麼 (Commit)**
-告訴大家你這次上傳了哪個範例：
+**2. Commit**
 ```bash
-git commit -m "Add: 完成 TriangleCongruence 範例"
+git commit -m "Add: complete FractionAdditionAreaModel example"
 ```
 
-**3. 推送到 GitHub (Push)**
+**3. Push**
 ```bash
 git push origin main
 ```
 
-*(如果推上去遇到衝突 `rejected`，請先執行 `git pull --rebase`，沒有問題後再做一次 `git push`)*
+如果遇到 `rejected`：
+```bash
+git pull --rebase
+git push origin main
+```
 
-🎉 **完成！你的程式碼已經成功繳交了！**
+---
+
+## 交付前自檢
+
+- `manim -pql` 可以成功 render
+- 檔名與 class 名一致
+- 有 docstring
+- 有 `[VISUAL REASONING]`
+- 只有一個 `Scene`
+- 沒有標籤重疊或圖形超出畫面
+- 至少有一個清楚的填色區域
+
+完成後把檔案 push 到 GitHub 即可。

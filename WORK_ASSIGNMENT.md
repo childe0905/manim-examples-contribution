@@ -1,225 +1,310 @@
-# 📋 Manim 圖形範例 — 工作分配表
+# Manim 圖形範例 - 工作分配表
 
-> **目標**：3 個人在 **一週內** 各產出 **6–8 個** 高品質 Manim 動畫腳本（共約 20 個）
-> **截止日**：2026/03/27（四）
-> **格式要求**：請務必先讀 [`CONTRIBUTOR_GUIDE.md`](file:///Users/liaozhenting/Desktop/LLManim_Agent/knowledge_base/CONTRIBUTOR_GUIDE.md)
+> **目標**：3 個人在 **一週內** 各產出 **7 個** K12 教學動畫腳本（共 21 個）
+> **截止日**：2026/04/09（四）
+> **格式要求**：請先讀 `CONTRIBUTOR_GUIDE.md`
 
 ---
 
 ## 現況分析
 
-| 資料夾 | 現有數量 | 覆蓋度 | 急迫度 |
-|--------|---------|--------|--------|
-| `geometry/` | 13 個 | 偏基礎，缺三角形進階、圓進階、3D、座標幾何 | 🔴 最急 |
-| `statistics/` | 0 個 | 完全空白 | 🔴 最急 |
-| `calculus/` | 4 個 | 有切線、梯度下降、傅立葉，缺黎曼和/積分面積 | 🟡 |
-| `algebra/` | 10 個 | 相對充足 | 🟢 |
-| `arithmetic/` | 6 個 | 相對充足 | 🟢 |
+| 資料夾 | 現況 | 缺口 | 急迫度 |
+|--------|------|------|--------|
+| `fractions/` | 已建立，待補內容 | 分數 area model、條帶比較、單位分數 | 最急 |
+| `measurement/` | 已建立，待補內容 | 面積切割、格線面積、周長 vs 面積 | 最急 |
+| `statistics/` | 已建立，待補內容 | 長條圖、直方圖、圓餅圖、盒鬚圖 | 最急 |
+| `geometry/` | 已有一定數量 | 區域型視覺仍偏少 | 中 |
+| `algebra/` `calculus/` `arithmetic/` | 有基礎範例 | 這輪不是優先重點 | 低 |
 
 ---
 
-## 👤 成員 A — 三角形 & 多邊形專家
+## 成員 A - Fractions / Area Model
 
-> **負責資料夾**：`geometry/`
-> **產出目標**：6–8 個 `.py` 檔
+> **負責資料夾**：`fractions/`
+> **產出目標**：7 個必做
 
 ### 必做（6 個）
 
 | # | 檔名建議 | 內容描述 | 難度 | 預估行數 |
 |---|---------|---------|------|---------|
-| A1 | `TriangleCongruenceSSS.py` | 三角形全等判定 SSS：建兩個三角形，逐邊高亮對應相等邊，最後疊合 | ⭐⭐ | 60–80 |
-| A2 | `TriangleCongruenceSAS.py` | SAS 全等：高亮兩邊一夾角，旋轉平移使兩三角形重合 | ⭐⭐ | 60–80 |
-| A3 | `TriangleCenters.py` | 展示外心、內心、重心的位置：畫三角形 → 逐一畫出三條中線/角平分線/垂直平分線 → 標示交點 | ⭐⭐⭐ | 100–130 |
-| A4 | `PolygonInteriorAngles.py` | 正多邊形內角和公式 `(n-2)×180°`：從三角形到六邊形，分割對角線展示三角形數量 | ⭐⭐ | 70–90 |
-| A5 | `ParallelogramArea.py` | 平行四邊形面積 = 底 × 高：剪一角拼成矩形的動畫變換 | ⭐⭐ | 60–80 |
-| A6 | `TrapezoidArea.py` | 梯形面積公式推導：兩個相同梯形拼成平行四邊形 | ⭐⭐ | 60–80 |
+| A1 | `EquivalentFractionsAreaModel.py` | 用同樣大小的長方形或條帶，展示 `1/2 = 2/4 = 4/8`。要求用三個等面積圖形並排，只改切分數，不改總面積。 | ⭐⭐ | 50-80 |
+| A2 | `FractionAdditionAreaModel.py` | 展示同分母分數加法，例如 `1/4 + 2/4 = 3/4`。要求先分格，再依序填色，最後高亮總和區塊。 | ⭐⭐ | 60-90 |
+| A3 | `FractionSubtractionAreaModel.py` | 展示同分母分數減法，例如 `3/5 - 1/5 = 2/5`。要求先顯示被減數，再淡化或移除被扣掉的區塊。 | ⭐⭐ | 50-80 |
+| A4 | `CompareFractionsWithBars.py` | 用同長度條帶比較 `2/3` 和 `3/5`。只做這一組固定分數，不要做多組案例切換。 | ⭐⭐ | 60-90 |
+| A5 | `UnitFractionPartition.py` | 展示 `1/2`、`1/3`、`1/4` 代表把同一單位切成不同等份。要求每次只高亮其中一份。 | ⭐ | 40-70 |
+| A6 | `ImproperFractionToMixedNumber.py` | 展示 `5/4 = 1 1/4`。要求至少畫兩個同樣大小的單位圖形，一個完整填滿，另一個只填部分。 | ⭐⭐ | 60-90 |
 
-### 加分（選做 2 個）
+### 必做（第 7 個）
 
 | # | 檔名建議 | 內容描述 | 難度 |
 |---|---------|---------|------|
-| A7 | `TriangleInequality.py` | 三角不等式視覺化：拖動邊長滑桿展示何時能/不能構成三角形 | ⭐⭐⭐ |
-| A8 | `ExteriorAngleTheorem.py` | 外角定理：外角 = 兩個不相鄰內角之和 | ⭐⭐ |
+| A7 | `FractionMultiplicationAreaModel.py` | 用矩形橫切與直切展示 `2/3 × 3/4`，最後只高亮交集區塊。 | ⭐⭐⭐ |
 
-### 技術提示
-```python
-# 建三角形常用
-triangle = Polygon(
-    np.array([-2, -1, 0]),
-    np.array([2, -1, 0]),
-    np.array([0, 2, 0]),
-    color=BLUE, fill_opacity=0.2
-)
+### 每題詳細規格
 
-# 重心 = 三頂點座標平均
-centroid = (v1 + v2 + v3) / 3
+- `A1 EquivalentFractionsAreaModel.py`
+  - 固定案例：只做 `1/2 = 2/4 = 4/8`
+  - 固定尺寸建議：每個長條寬 4、高 0.8
+  - 畫面流程：先畫三個一樣大的長條，再依序切成 2、4、8 份，最後各自填滿相同面積
+  - 最低完成標準：三個圖形總寬一致、填色面積一致、最後出現等號或等值說明
 
-# 角度標記
-angle = Angle(line1, line2, radius=0.5, color=YELLOW)
-angle_label = MathTex(r"\alpha").move_to(angle.point_from_proportion(0.5))
-```
+- `A2 FractionAdditionAreaModel.py`
+  - 固定案例：只做 `1/4 + 2/4 = 3/4`
+  - 固定尺寸建議：使用單一寬 4 的長條，切成 4 等份
+  - 畫面流程：先畫四等分長條，先填 `1/4`，再補上 `2/4`，最後把總共 `3/4` 高亮
+  - 最低完成標準：加數與結果要用不同階段呈現，不能一開始全部填滿
+
+- `A3 FractionSubtractionAreaModel.py`
+  - 固定案例：只做 `3/5 - 1/5 = 2/5`
+  - 固定尺寸建議：使用單一寬 5 的長條，切成 5 等份
+  - 畫面流程：先顯示五等分長條並填 `3/5`，再把其中 `1/5` 淡化或移走，最後保留 `2/5`
+  - 最低完成標準：要看得出哪一塊被減掉，結果區塊需單獨強調
+
+- `A4 CompareFractionsWithBars.py`
+  - 固定案例：只做 `2/3` 和 `3/5`
+  - 固定布局：上方畫 `2/3`，下方畫 `3/5`，兩個條帶寬度都用 4
+  - 畫面流程：上下放兩個同長度條帶，各自切分後填色，最後在右側或中間標出大小比較
+  - 最低完成標準：兩個條帶必須對齊，不能因圖形大小不同造成誤導
+
+- `A5 UnitFractionPartition.py`
+  - 固定案例：依序展示 `1/2`、`1/3`、`1/4`
+  - 固定尺寸建議：三個例子都使用寬 3.6、高 0.8 的長條
+  - 畫面流程：同一個單位圖形重複出現三次，每次切成不同份數，只高亮其中一份
+  - 最低完成標準：三個例子要共用同樣大小的單位圖形
+
+- `A6 ImproperFractionToMixedNumber.py`
+  - 固定案例：只做 `5/4 = 1 1/4`
+  - 固定布局：左右並排兩個四等分長條
+  - 畫面流程：先用四等分長條填滿 `4/4`，再在第二個長條填 `1/4`，最後轉成 `1 1/4`
+  - 最低完成標準：至少要有兩個同單位圖形，並清楚分出整數部分與剩餘部分
+
+- `A7 FractionMultiplicationAreaModel.py`
+  - 固定案例：只做 `2/3 × 3/4`
+  - 固定尺寸建議：使用一個 4x3 的矩形
+  - 畫面流程：先畫一個矩形，先做三等分並高亮 `2/3`，再做四等分並用另一種顏色標 `3/4`，最後只保留交集
+  - 最低完成標準：橫向與縱向切分必須可辨識，交集區域必須和其他區域顏色區分
+
+### 技術提醒
+
+- 優先使用 `Rectangle`、`Square`、`VGroup`
+- 每題至少要有 1 次明確填色變化
+- 分數題不要做互動滑桿
 
 ---
 
-## 👤 成員 B — 圓 & 座標幾何專家
+## 成員 B - Measurement / Area
 
-> **負責資料夾**：`geometry/`
-> **產出目標**：6–8 個 `.py` 檔
+> **負責資料夾**：`measurement/`
+> **產出目標**：7 個必做
 
 ### 必做（6 個）
 
 | # | 檔名建議 | 內容描述 | 難度 | 預估行數 |
 |---|---------|---------|------|---------|
-| B1 | `CircleTangentLine.py` | 圓的切線性質：過外點畫兩條切線，標示切線 ⊥ 半徑 | ⭐⭐ | 60–80 |
-| B2 | `InscribedAngle.py` | 圓心角 vs 圓周角：同弧上的圓心角 = 2× 圓周角，動態展示 | ⭐⭐⭐ | 80–100 |
-| B3 | `CircleAreaSectors.py` | 圓面積 = πr²：將圓切成越來越多扇形，排成近似矩形 | ⭐⭐⭐ | 90–120 |
-| B4 | `DistanceFormula.py` | 座標平面上兩點距離公式推導：畫直角三角形 → 畢氏定理 → √((x₂-x₁)²+(y₂-y₁)²) | ⭐⭐ | 70–90 |
-| B5 | `MidpointFormula.py` | 中點公式視覺化：兩點連線 → 標中點座標 → 展示公式 | ⭐⭐ | 50–70 |
-| B6 | `LineEquationGraph.py` | 斜截式 y=mx+b：用滑桿改變 m 和 b，展示直線變化 | ⭐⭐⭐ | 80–100 |
+| B1 | `TriangleArea.py` | 展示三角形面積 `1/2 × base × height`。要求把三角形複製或重組成平行四邊形，再回推一半。 | ⭐⭐ | 60-90 |
+| B2 | `RectangleAreaArrayModel.py` | 用方格陣列展示長方形面積 = 列 × 行。要求畫清楚 rows 與 columns，不要只顯示公式。 | ⭐ | 40-70 |
+| B3 | `CompositeArea.py` | 只做 `L` 形或「長方形挖去一角」其中一種固定圖形。要求拆成 2 或 3 個基本圖形，不要自由發揮複雜形狀。 | ⭐⭐ | 70-100 |
+| B4 | `PerimeterVsArea.py` | 用同一個固定圖形對比周長與面積。要求邊界與內部區域分別高亮，明確表現兩者不同。 | ⭐⭐ | 60-90 |
+| B5 | `CircleAreaDecomposition.py` | 把圓切成多個扇形，再重排成近似長方形，展示圓面積概念。 | ⭐⭐⭐ | 80-110 |
+| B6 | `AreaOnCoordinateGrid.py` | 在格線上畫簡單圖形求面積。要求以數格子或拆格子為主，不要做完整座標公式推導。 | ⭐⭐ | 60-90 |
 
-### 加分（選做 2 個）
-
-| # | 檔名建議 | 內容描述 | 難度 |
-|---|---------|---------|------|
-| B7 | `CyclicQuadrilateral.py` | 圓內接四邊形：對角互補的動態展示 | ⭐⭐⭐ |
-| B8 | `ChordAngleTheorem.py` | 弦切角定理視覺化 | ⭐⭐⭐ |
-
-### 技術提示
-```python
-# 圓上的點
-def point_on_circle(center, radius, angle):
-    return center + np.array([
-        np.cos(angle) * radius,
-        np.sin(angle) * radius,
-        0
-    ])
-
-# 切線（垂直於半徑）
-radius_vec = point - center
-tangent_dir = np.array([-radius_vec[1], radius_vec[0], 0])
-tangent_line = Line(point - tangent_dir, point + tangent_dir)
-
-# 直角標記
-right_angle = RightAngle(line1, line2, length=0.3, color=WHITE)
-
-# NumberPlane 適合座標幾何
-plane = NumberPlane(x_range=[-5,5], y_range=[-4,4])
-```
-
----
-
-## 👤 成員 C — 3D 幾何 & 統計圖表專家
-
-> **負責資料夾**：`geometry/` + `statistics/`
-> **產出目標**：6–8 個 `.py` 檔
-
-### 必做 — 3D 幾何（3 個）
-
-| # | 檔名建議 | 內容描述 | 難度 | 預估行數 |
-|---|---------|---------|------|---------|
-| C1 | `CubeNet.py` | 立方體展開圖：6 個正方形攤平 → 折回成立方體 | ⭐⭐⭐ | 100–130 |
-| C2 | `PrismVolume.py` | 棱柱體積 = 底面積 × 高：動態展示底面積和高度標籤 | ⭐⭐ | 70–90 |
-| C3 | `SphereCrossSection.py` | 球體切面：用平面切球，展示不同位置的圓形截面大小變化 | ⭐⭐⭐ | 90–120 |
-
-### 必做 — 統計圖表（3 個）
-
-| # | 檔名建議 | 內容描述 | 難度 | 預估行數 |
-|---|---------|---------|------|---------|
-| C4 | `BarChart.py` | 長條圖：用 `BarChart` 類別，逐條動畫出現，加標題和數值標籤 | ⭐⭐ | 50–70 |
-| C5 | `Histogram.py` | 直方圖/頻率分佈：生成一組資料 → 畫出頻率分佈長條 → 加上平均數虛線 | ⭐⭐ | 60–80 |
-| C6 | `NormalDistribution.py` | 常態分佈曲線：畫鐘形曲線 → 標示 μ、σ → 著色 68-95-99.7 區域 | ⭐⭐⭐ | 80–100 |
-
-### 加分（選做 2 個）
+### 必做（第 7 個）
 
 | # | 檔名建議 | 內容描述 | 難度 |
 |---|---------|---------|------|
-| C7 | `BoxPlot.py` | 盒鬚圖：展示 Q1/Q2/Q3/IQR 的計算過程 | ⭐⭐⭐ |
-| C8 | `PyramidVolume.py` | 棱錐體積 = ⅓ 底面積 × 高：三個棱錐拼成棱柱 | ⭐⭐⭐ |
+| B7 | `SurfaceAreaNet.py` | 用長方體或立方體展開圖展示表面積由哪些面組成，各面分色並標尺寸。 | ⭐⭐⭐ |
 
-### 技術提示
-```python
-# === 3D 場景 ===
-class YourScene(ThreeDScene):
-    def construct(self):
-        self.set_camera_orientation(phi=75*DEGREES, theta=-45*DEGREES)
+### 每題詳細規格
 
-        # 3D 物件
-        cube = Cube(side_length=2, fill_opacity=0.3)
-        prism = Prism(dimensions=[2, 1, 3])
-        sphere = Sphere(radius=1.5)
-        surface = Surface(
-            lambda u, v: np.array([u, v, u**2 + v**2]),
-            u_range=[-2, 2], v_range=[-2, 2]
-        )
+- `B1 TriangleArea.py`
+  - 固定案例：使用一個底邊水平的三角形
+  - 固定頂點建議：`(-2, -1)`, `(2, -1)`, `(0.5, 1.5)`
+  - 畫面流程：先標出底與高，再複製或鏡射成平行四邊形，最後回到 `A = 1/2 bh`
+  - 最低完成標準：高必須畫出來，且能看出為什麼是平行四邊形的一半
 
-        # 相機動畫
-        self.begin_ambient_camera_rotation(rate=0.2)
-        self.move_camera(phi=60*DEGREES, theta=30*DEGREES)
+- `B2 RectangleAreaArrayModel.py`
+  - 固定案例：例如 `4 × 3` 的長方形格陣
+  - 固定案例數值：直接做 `4 × 3 = 12`
+  - 畫面流程：先畫外框，再填入格子，接著標示 4 columns、3 rows，最後出現 `4 × 3 = 12`
+  - 最低完成標準：格子必須清楚可數，行列標示不可省略
 
-# === 統計圖表 ===
-# BarChart
-chart = BarChart(
-    values=[3, 5, 2, 8, 4],
-    bar_names=["A", "B", "C", "D", "E"],
-    y_range=[0, 10, 2],
-    bar_colors=[BLUE, GREEN, RED, YELLOW, PURPLE]
-)
+- `B3 CompositeArea.py`
+  - 固定案例：只做 `L` 形
+  - 固定尺寸建議：外框 4x4，挖掉右上角 2x2
+  - 畫面流程：先畫完整 `L` 形，再用 2 或 3 種顏色拆成長方形，最後把面積相加
+  - 最低完成標準：不可改成其他不規則圖形；拆分後每塊都要可辨識
 
-# 手動畫直方圖（用 Rectangle）
-bars = VGroup()
-for i, freq in enumerate(frequencies):
-    bar = Rectangle(
-        width=bin_width, height=freq * scale,
-        color=BLUE, fill_opacity=0.6
-    )
-    bar.move_to(axes.c2p(bin_edges[i] + bin_width/2, freq/2))
-    bars.add(bar)
+- `B4 PerimeterVsArea.py`
+  - 固定案例：只做一個固定長方形或 `L` 形
+  - 固定案例建議：直接沿用 `B3` 的 `L` 形
+  - 畫面流程：先高亮整個內部區域表示 area，再改高亮邊界表示 perimeter，最後做對照
+  - 最低完成標準：邊界與內部要有明顯不同的視覺處理
+
+- `B5 CircleAreaDecomposition.py`
+  - 固定案例：同一個圓從少量扇形切到較多扇形
+  - 固定半徑建議：半徑 2，先切 8 份，再切 16 份
+  - 畫面流程：先畫圓，再切成扇形，最後上下交錯排列成近似長方形
+  - 最低完成標準：至少出現一次「圓到近似長方形」的重排，不要只停在扇形切割
+
+- `B6 AreaOnCoordinateGrid.py`
+  - 固定案例：只做矩形拼接圖，不做梯形
+  - 固定圖形建議：左邊 `2x3` 長方形加上右下 `2x2` 長方形
+  - 畫面流程：先畫格線與圖形，再用數格子或拆格子的方式算面積，最後標出總面積
+  - 最低完成標準：重點是數單位格，不要把主體變成座標公式推導
+
+- `B7 SurfaceAreaNet.py`
+  - 固定案例：優先做立方體，其次才做長方體
+  - 固定案例數值：直接做邊長 2 的立方體
+  - 畫面流程：先顯示立體，再展開成 net，標出每個面，最後總結表面積由幾個面組成
+  - 最低完成標準：展開圖形狀要正確，各面要能明顯看出對應關係
+
+### 技術提醒
+
+- 優先使用 `Polygon`、`Rectangle`、`Square`、`NumberPlane`
+- `CompositeArea.py` 請先畫草圖再寫程式
+- `AreaOnCoordinateGrid.py` 重點是區域視覺化，不是代數推導
+
+---
+
+## 成員 C - Statistics / Data Visualization
+
+> **負責資料夾**：`statistics/`
+> **產出目標**：7 個必做
+
+### 必做（6 個）
+
+| # | 檔名建議 | 內容描述 | 難度 | 預估行數 |
+|---|---------|---------|------|---------|
+| C1 | `BarChart.py` | 用固定小型資料集畫分類長條圖。要求逐條出現，並加上數值標籤。 | ⭐ | 40-70 |
+| C2 | `Histogram.py` | 用固定資料集畫直方圖。要求標出 bin range，柱子之間不要留大空隙，避免做得像 bar chart。 | ⭐⭐ | 60-90 |
+| C3 | `PieChartFractions.py` | 用圓餅圖表示比例。要求圓切成固定幾塊扇形，每塊顏色不同並標比例。 | ⭐⭐ | 50-80 |
+| C4 | `BoxPlot.py` | 用 7 或 9 個固定數字展示排序資料如何轉成 box plot。要求顯示 `min / Q1 / median / Q3 / max`。 | ⭐⭐⭐ | 80-110 |
+| C5 | `LinePlotGrowth.py` | 用折線圖展示數值隨時間變化。要求點依序出現再連成線，最後高亮整體趨勢。 | ⭐⭐ | 50-80 |
+| C6 | `MeanAsBalancePoint.py` | 用固定 5 個數值展示平均數位置。要求在 dot plot 或簡單數線上標示 mean，不需要做真正的力學平衡動畫。 | ⭐⭐ | 60-90 |
+
+### 必做（第 7 個）
+
+| # | 檔名建議 | 內容描述 | 難度 |
+|---|---------|---------|------|
+| C7 | `NormalDistribution.py` | 畫鐘形曲線並標示平均數與標準差，著色 68-95-99.7 區域。 | ⭐⭐⭐ |
+
+### 每題詳細規格
+
+- `C1 BarChart.py`
+  - 固定案例：分類 `A, B, C, D`
+  - 固定資料集：`[3, 5, 2, 6]`
+  - 畫面流程：先出現座標軸或 chart frame，再依序長出每個 bar，最後補上數值標籤
+  - 最低完成標準：bar 間要有間隔，分類名稱與數值都要能看清楚
+
+- `C2 Histogram.py`
+  - 固定案例：使用資料集 `[2, 3, 3, 4, 4, 4, 5, 5, 6, 6, 6, 7]`
+  - 固定 bin：`[2,4)`, `[4,6)`, `[6,8)`
+  - 畫面流程：先顯示 bin 區間，再依照資料形成連續 bins，最後加上平均數虛線或簡單標示
+  - 最低完成標準：柱子之間幾乎相連，且有 bin range 標記
+
+- `C3 PieChartFractions.py`
+  - 固定案例：只做一組固定比例，例如 `1/2, 1/4, 1/4`
+  - 固定標籤：`Math`, `Reading`, `Science`
+  - 畫面流程：先畫整個圓，再依序切出各扇形，最後標比例或分數
+  - 最低完成標準：每塊扇形顏色不同，標示位置不能互相重疊
+
+- `C4 BoxPlot.py`
+  - 固定案例：只用 7 個數字 `[2, 4, 5, 6, 8, 9, 12]`
+  - 畫面流程：先列出資料點並排序，再標出 median、Q1、Q3，最後轉成盒鬚圖
+  - 最低完成標準：五數摘要都必須出現，且觀眾能看出資料點如何對應到 box plot
+
+- `C5 LinePlotGrowth.py`
+  - 固定案例：時間點 `Mon` 到 `Fri`
+  - 固定資料集：`[2, 3, 4, 4, 6]`
+  - 畫面流程：先顯示座標軸，再依序出現點，然後連線，最後高亮整段趨勢
+  - 最低完成標準：點的出現順序要和時間順序一致，不能直接整條線同時出現
+
+- `C6 MeanAsBalancePoint.py`
+  - 固定案例：只做 5 個固定數值，例如 `2, 4, 4, 6, 9`
+  - 固定平均數：`5`
+  - 畫面流程：先在數線或 dot plot 上標資料點，再標出 mean 所在位置，最後用虛線或顏色強調
+  - 最低完成標準：平均數必須和原始資料同時出現在畫面上，方便比較
+
+- `C7 NormalDistribution.py`
+  - 固定案例：只做標準化示意，不需要真實資料來源
+  - 畫面流程：先畫鐘形曲線，再標 `mu` 與 `sigma`，最後依序填 68%、95%、99.7% 區域
+  - 最低完成標準：中心與左右對稱要清楚，區域著色需分層而不是全部同色
+
+---
+
+## 統一輸出規格
+
+- 每一題都要有標題，但標題只要一行
+- 除了純概念展示題，結尾都要出現公式、結論或比較符號
+- 最短可接受版本：總動畫長度約 12 到 25 秒
+- 不要把單題做成超過 4 段的大型動畫
+- 建議色彩規則：
+  - 主體圖形：`BLUE`
+  - 被強調區域：`YELLOW` 或 `GREEN`
+  - 被移除或淡化區域：`GRAY`
+  - 補充標示線：`WHITE`
+- 建議透明度：
+  - 一般填色 `fill_opacity=0.4` 到 `0.6`
+  - 強調區域 `fill_opacity=0.7` 左右
+- 建議字體密度：每個畫面同時出現的文字盡量不要超過 3 組
+
+## Git 提交流程
+
+- 先在自己的題目檔案完成後本機 render
+- commit message 建議格式：
+  - `Add: complete EquivalentFractionsAreaModel`
+  - `Add: complete TriangleArea`
+- 目前先直接提交到同一個 repo，不額外要求 feature branch
+
+### 技術提醒
+
+- 圖表題一律使用固定資料集，不要用大型隨機資料
+- `Histogram.py` 與 `BarChart.py` 必須做出視覺差異
+- `BoxPlot.py` 先做排序資料，再轉成盒鬚圖
+
+---
+
+## 一週時程
+
+```text
+Day 1  讀 CONTRIBUTOR_GUIDE.md + 建立資料夾 + 完成第 1 題
+Day 2  完成第 2-3 題
+Day 3  完成第 4 題
+Day 4  完成第 5 題
+Day 5  完成第 6 題
+Day 6  完成第 7 題 + render 檢查
+Day 7  push GitHub + 統一 review
 ```
 
 ---
 
-## 📅 時程 & 交付流程
+## 交付方式
 
-```
-Day 1 (3/20 四)  環境設定 + 讀 CONTRIBUTOR_GUIDE.md + 各自完成第 1 個
-Day 2-3          完成第 2–4 個（每完成一個就先傳出來確認能 render）
-Day 4-5          完成第 5–6 個 + 加分題
-Day 6 (3/26 三)  全部交付，統一 review
-Day 7 (3/27 四)  修正 + ingest 進 RAG
-```
-
-### 交付方式
-1. 每完成一個 `.py` 就先自己跑 `manim -pql YourFile.py YourSceneName` 確認能 render
-2. 把 `.py` 檔傳給我（LINE / Git / 隨便），附上一張 render 截圖
-3. 我統一 review 後放進 `knowledge_base/` 對應資料夾
-
-### 命名規則
-- 檔名：`PascalCase.py`（如 `TriangleCenters.py`）
-- Class 名：跟檔名一樣（如 `class TriangleCenters(Scene):`）
-- **不要用中文檔名**
+1. 每完成一個 `.py` 就先跑：
+   ```bash
+   manim -pql YourFile.py YourSceneName
+   ```
+2. render 成功後再 commit
+3. push 到 GitHub
+4. 交付前至少確認一次畫面沒有標籤重疊
 
 ---
 
-## ⚡ 品質紅線（不符合就打回重做）
+## 品質紅線
 
-1. ❌ `manim -pql` 跑不過 → 打回
-2. ❌ 沒有 docstring → 打回
-3. ❌ 沒有 `[VISUAL REASONING]` 註解 → 打回
-4. ❌ 物件超出畫面 / 標籤重疊 → 打回
-5. ❌ 超過 150 行且沒有合理理由 → 打回
+1. `manim -pql` 跑不過
+2. 沒有 docstring
+3. 沒有 `[VISUAL REASONING]`
+4. 一個檔案有多個 Scene
+5. 幾乎沒有填色區域或區域高亮
+6. 題目被做成和分配內容不一致的大專題
+7. 標籤重疊或圖形超出畫面
 
 ---
 
-## ❓ FAQ
+## 補充說明
 
-**Q: 我不會 Manim 怎麼辦？**
-A: 先讀 `CONTRIBUTOR_GUIDE.md` 的 API 速查表，再看 `geometry/` 裡現有的範例，照著改就好。
-
-**Q: 我不確定要做的題目的數學對不對？**
-A: 先 Google 確認公式，重點是「動畫有教學效果」，不是寫論文。
-
-**Q: 座標算不出來怎麼辦？**
-A: 用 `numpy` 算。不確定的話，先在紙上畫草圖標座標，再轉成程式碼。
-
-**Q: 3D 場景渲染很慢？**
-A: 用 `-pql`（低畫質）開發，最後再用 `-pqh` 確認。3D 場景 render 確實比較久，正常。
+- 所有題目都以 K12 教學清楚為第一優先
+- 不要追求過度複雜動畫
+- 每題只做文件指定的單一案例
+- 如果題目描述還有疑問，先照 `CONTRIBUTOR_GUIDE.md` 的縮限規則處理
